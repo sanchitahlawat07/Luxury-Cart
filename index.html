@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUXE — Premium Store</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- TOAST -->
+<div id="toast-container"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">LUXE</a>
+  <ul class="nav-links">
+    <li><a href="#categories">Categories</a></li>
+    <li><a href="#products">Shop</a></li>
+    <li><a href="#features">Why Us</a></li>
+    <li><a href="#newsletter">Newsletter</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="nav-btn" id="search-toggle" title="Search">🔍</button>
+    <button class="nav-btn" id="wishlist-btn" title="Wishlist">🤍</button>
+    <button class="nav-btn" id="cart-btn" title="Cart">
+      🛍️
+      <span class="cart-badge" id="cart-count">0</span>
+    </button>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- SEARCH BAR -->
+<div class="search-bar" id="search-bar">
+  <div class="search-inner">
+    <input type="text" class="search-input" placeholder="Search for products..." id="search-input">
+    <button class="search-submit">→</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-tag">✦ New Collection 2025</div>
+    <h1>Where <em>Luxury</em><br>Meets Style</h1>
+    <p>Discover curated premium products for the discerning individual. Crafted with excellence, delivered with care.</p>
+    <div class="hero-cta">
+      <button class="btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Shop Now →</button>
+      <button class="btn-outline" onclick="document.getElementById('categories').scrollIntoView({behavior:'smooth'})">Browse Categories</button>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <div class="marquee-track" id="marquee">
+    <span>Free Shipping Over ₹2000</span><span class="dot">✦</span>
+    <span>New Arrivals Weekly</span><span class="dot">✦</span>
+    <span>Premium Quality Guaranteed</span><span class="dot">✦</span>
+    <span>Easy 30-Day Returns</span><span class="dot">✦</span>
+    <span>24/7 Customer Support</span><span class="dot">✦</span>
+    <span>Exclusive Member Deals</span><span class="dot">✦</span>
+    <span>Free Shipping Over ₹2000</span><span class="dot">✦</span>
+    <span>New Arrivals Weekly</span><span class="dot">✦</span>
+    <span>Premium Quality Guaranteed</span><span class="dot">✦</span>
+    <span>Easy 30-Day Returns</span><span class="dot">✦</span>
+    <span>24/7 Customer Support</span><span class="dot">✦</span>
+    <span>Exclusive Member Deals</span><span class="dot">✦</span>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<section id="categories">
+  <div class="section-header fade-up">
+    <span class="section-tag">Browse</span>
+    <h2 class="section-title">Shop by Category</h2>
+    <p class="section-sub">From fashion to electronics, find everything you need in one place.</p>
+  </div>
+  <div class="categories-grid">
+    <div class="category-card fade-up" onclick="filterProducts('fashion')">
+      <div class="category-card-inner">
+        <div class="cat-icon">👗</div>
+        <div class="cat-name">Fashion</div>
+        <div class="cat-count">48 products</div>
+        <div class="cat-line"></div>
+      </div>
+    </div>
+    <div class="category-card fade-up" onclick="filterProducts('electronics')">
+      <div class="category-card-inner">
+        <div class="cat-icon">📱</div>
+        <div class="cat-name">Electronics</div>
+        <div class="cat-count">35 products</div>
+        <div class="cat-line"></div>
+      </div>
+    </div>
+    <div class="category-card fade-up" onclick="filterProducts('accessories')">
+      <div class="category-card-inner">
+        <div class="cat-icon">👜</div>
+        <div class="cat-name">Accessories</div>
+        <div class="cat-count">62 products</div>
+        <div class="cat-line"></div>
+      </div>
+    </div>
+    <div class="category-card fade-up" onclick="filterProducts('home')">
+      <div class="category-card-inner">
+        <div class="cat-icon">🏡</div>
+        <div class="cat-name">Home & Living</div>
+        <div class="cat-count">29 products</div>
+        <div class="cat-line"></div>
+      </div>
+    </div>
+    <div class="category-card fade-up" onclick="filterProducts('beauty')">
+      <div class="category-card-inner">
+        <div class="cat-icon">💄</div>
+        <div class="cat-name">Beauty</div>
+        <div class="cat-count">41 products</div>
+        <div class="cat-line"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="section-header fade-up">
+    <span class="section-tag">Featured</span>
+    <h2 class="section-title">Our Products</h2>
+    <p class="section-sub">Handpicked selections from the finest collections worldwide.</p>
+  </div>
+  <div class="filters">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="fashion">Fashion</button>
+    <button class="filter-btn" data-filter="electronics">Electronics</button>
+    <button class="filter-btn" data-filter="accessories">Accessories</button>
+    <button class="filter-btn" data-filter="home">Home & Living</button>
+    <button class="filter-btn" data-filter="beauty">Beauty</button>
+  </div>
+  <div class="products-grid" id="products-grid"></div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" style="padding-top:0;">
+  <div class="features-section fade-up">
+    <div class="features-grid">
+      <div class="feature-item">
+        <span class="feature-icon">🚀</span>
+        <div class="feature-title">Fast Delivery</div>
+        <div class="feature-desc">Express shipping available. Get your order within 24 hours.</div>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">🔒</span>
+        <div class="feature-title">Secure Payments</div>
+        <div class="feature-desc">Bank-grade encryption keeps every transaction safe.</div>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">↩️</span>
+        <div class="feature-title">Easy Returns</div>
+        <div class="feature-desc">30-day hassle-free returns on all products, no questions asked.</div>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">💎</span>
+        <div class="feature-title">Premium Quality</div>
+        <div class="feature-desc">Every item is vetted and quality-checked before shipping.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section id="newsletter" style="padding-top:0; padding-bottom:6rem;">
+  <div class="newsletter-section fade-up">
+    <h2>Stay in the Loop</h2>
+    <p>Get exclusive deals, new arrivals, and style tips delivered to your inbox.</p>
+    <div class="newsletter-form">
+      <input type="email" placeholder="Enter your email address" id="newsletter-email">
+      <button class="btn-primary" onclick="subscribeNewsletter()">Subscribe</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="nav-logo" href="#">LUXE</a>
+        <p>Premium shopping experience curated for those who demand excellence in every purchase.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#">New Arrivals</a></li>
+          <li><a href="#">Best Sellers</a></li>
+          <li><a href="#">Sale</a></li>
+          <li><a href="#">Gift Cards</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Help</h4>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Track Order</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="payment-icons">
+        <span class="pay-icon">VISA</span>
+        <span class="pay-icon">MC</span>
+        <span class="pay-icon">UPI</span>
+        <span class="pay-icon">PayTM</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- CART OVERLAY -->
+<div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+<div class="cart-sidebar" id="cart-sidebar">
+  <div class="cart-header">
+    <h2 class="cart-title">Your Cart</h2>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cart-items"></div>
+  <div class="cart-footer" id="cart-footer" style="display:none;">
+    <div class="cart-subtotal">
+      <span>Subtotal</span>
+      <span class="total-val" id="cart-total">₹0</span>
+    </div>
+    <div class="cart-shipping" id="cart-shipping-msg"></div>
+    <button class="checkout-btn" onclick="checkout()">Checkout →</button>
+  </div>
+</div>
+
+<!-- PRODUCT MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal-wrapper">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal">
+      <div class="modal-inner" id="modal-inner"></div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
